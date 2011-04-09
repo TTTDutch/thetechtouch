@@ -1,0 +1,41 @@
+#ifndef MENU_H
+#define MENU_H
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include "engine.h"
+
+class Choice;
+
+class Menu
+{
+   public:
+   Menu(int x, int y, int space);
+   void AddChoice(sf::Image img, void (*pfunc)());
+   void RemoveChoice(int choice);
+   void CallFunc(int choice);
+   vector<Choice*> * GetChoices() { return &m_choice; }
+   Choice * GetChoice(int choice) { return m_choice[choice]; }
+
+   private:
+   vector <Choice*> m_choice;
+   int m_x,m_y,m_next;
+   int m_space;
+   int m_count;
+};
+
+class Choice
+{
+   public:
+   Choice(sf::Image img, void (*pfunc)()) { m_spt.SetImage(img); m_pfunc = pfunc; }
+   sf::Sprite *  GetSprite() { return &m_spt; }
+   void SetFunc(void (*pfunc)()) { m_pfunc = pfunc; }
+   void CallFunc() { m_pfunc(); }
+   private:
+   void (*m_pfunc)();
+   sf::Sprite m_spt;
+};
+
+#endif
