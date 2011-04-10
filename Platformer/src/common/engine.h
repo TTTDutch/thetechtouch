@@ -10,7 +10,7 @@
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  Brent Ritzema (), thetechtouchdutch@gmail.com
+ *         Author:  Brent (), thetechtouchdutch@gmail.com
  *        Company:  thetechtouch
  *
  * =====================================================================================
